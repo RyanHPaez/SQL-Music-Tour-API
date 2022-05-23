@@ -4,7 +4,27 @@ const { DataTypes } = require('sequelize')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn('Events', 'name', {
-        type: DataTypes.STRING
+      event_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      start_time: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      end_time: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
     })
   },
 

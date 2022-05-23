@@ -2,22 +2,18 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Stage_Events', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      stage_events_id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true
       },
-      stage_event_id: {
-        type: Sequelize.INTEGER
+      stage_id: {
+        type: DataTypes.SMALLINT,
+        allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      event_id: {
+        type: DataTypes.SMALLINT,
+        allowNull: false
       }
     });
   },

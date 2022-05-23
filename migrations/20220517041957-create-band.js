@@ -3,28 +3,26 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('bands', {
       band_id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true
       },
-      
       name: {
-        type: Sequelize.STRING,
-        allowNull: false,
+          type: DataTypes.STRING,
+          allowNull: false
       },
       genre: {
-        type: Sequelize.TEXT,
-        allowNull: false,
+          type: DataTypes.TEXT,
+          allowNull: false
       },
       available_start_time: {
-        type: Sequelize.DATE,
-        allowNull: false,
+          type: DataTypes.DATE,
+          allowNull: false
       },
       end_time: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
+          type: DataTypes.DATE,
+          allowNull: false
+      }
       
     });
   },
