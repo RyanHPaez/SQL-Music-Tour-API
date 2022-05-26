@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const {
   Model
 } = require('sequelize');
@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Band, Event, Stage }) {
+     static associate({ Band, Event, Stage }) {
       // band
       SetTime.belongsTo(Band, {
         foreignKey: "band_id",
-        as: "band"
+        as: "bands"
       })
 
       // event
@@ -25,27 +25,28 @@ module.exports = (sequelize, DataTypes) => {
       // stage 
       SetTime.belongsTo(Stage, {
         foreignKey: "stage_id",
-        as: "stage"
+        as: "stages"
       })
     }
   };
   SetTime.init({
     set_time_id: {
-      type: DataTypes.INTEGER, 
+      type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
-    },
-    event_id: {
-      type: DataTypes.SMALLINT,
-      allowNull: false
-    },
-    stage_id: {
-      type: DataTypes.SMALLINT,
-      allowNull: false
+      autoIncrement: true,
+      allowNull: false,
     },
     band_id: {
       type: DataTypes.SMALLINT,
-      allowNull: false
+      allowNull: false,
+    },
+    event_id: {
+      type: DataTypes.SMALLINT,
+      allowNull: false,
+    },
+    stage_id: {
+      type: DataTypes.SMALLINT,
+      allowNull: false,
     },
     start_time: {
       type: DataTypes.DATE,
@@ -54,12 +55,12 @@ module.exports = (sequelize, DataTypes) => {
     end_time: {
       type: DataTypes.DATE,
       allowNull: false
-    },
+    }
   }, {
     sequelize,
     modelName: 'SetTime',
-    tableName: 'Set_Times',
-    timestamps: false
-  })
-  return SetTime
-}
+    tableName: 'set_times',
+    timestamps: false,
+  });
+  return SetTime;
+};

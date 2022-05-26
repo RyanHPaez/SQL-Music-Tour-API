@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const {
   Model
 } = require('sequelize');
@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // band
       MeetGreet.belongsTo(Band, {
         foreignKey: "band_id",
-        as: "band"
+        as: "bands"
       })
 
       // event
       MeetGreet.belongsTo(Event, {
         foreignKey: "event_id",
-        as: "event"
+        as: "events"
       })
     }
   }
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'MeetGreet',
-    tableName: 'Meet_Greets',
+    tableName: 'meet_greets',
     timestamps: false
   })
   return MeetGreet

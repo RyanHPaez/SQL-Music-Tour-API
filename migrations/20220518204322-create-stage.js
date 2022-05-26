@@ -1,20 +1,34 @@
 'use strict';
+
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Stages', {
-      
-      stage_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      stage_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
-    });
+  async up (queryInterface, Sequelize) {
+    await queryInterface.createTable('events', {
+      event_id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
+    },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    date: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    available_start_time: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    end_time: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    }
+  })
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Stages');
+
+  async down (queryInterface, Sequelize) {
+      await queryInterface.dropTable('events')
   }
 };
